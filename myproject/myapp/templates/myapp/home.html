@@ -1,0 +1,30 @@
+<!-- myapp/templates/myapp/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display python Variable</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}" /> 
+  </head>
+  <body>
+    <h1>{{ header_text }}</h1>
+    <main>  
+      <form method="POST">
+        {% csrf_token %}
+        <!-- necesary -->
+        <button type="submit" name="execute_button">Execute Python Code</button>
+      </form>
+
+      <!-- Display the result from the Python function -->
+      {% if header_text %} 
+      <p>{{ header_text }}</p>
+      {% endif %} 
+    </main>
+    <footer>
+      <p>&copy; 2024 My Django Project</p>
+    </footer>
+  </body>
+</html>
+ 
